@@ -24,8 +24,8 @@ const rl = readline.createInterface({
 });
 
 const convert = compile({
-  preserveNewlines: false,
-  wordwrap: false,
+  preserveNewlines: true,
+  wordwrap: true,
   // The main content of a website will typically be found in the main element
   baseElements: { selectors: ["main"] },
   selectors: [
@@ -41,7 +41,7 @@ let previousChat = [];
 
 async function startCli() {
   rl.question(
-    chalk.bgHex("#00A67E").white("🧠 Ask me anything:") + " ",
+    chalk.bgHex("#fff").white("🧠 Ask me anything:") + " ",
     async (userPrompt) => {
       await searchGPT(userPrompt);
       startCli();
